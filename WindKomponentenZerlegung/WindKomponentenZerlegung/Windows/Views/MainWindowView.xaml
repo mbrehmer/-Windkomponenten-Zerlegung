@@ -4,9 +4,132 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:cal="http://www.caliburnproject.org"
+		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
 		xmlns:local="clr-namespace:WindKomponentenZerlegung"
 		mc:Ignorable="d"
 		d:DataContext="{Binding Source={x:Static local:DesignTimeVewModels.MainWindowViewModel}}"
+		ResizeMode="CanMinimize"
+		Width="450" Height="220"
+		WindowStartupLocation="CenterScreen"
 		Title="{Binding WindowTitle}">
+	
+	<StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+		<GroupBox Header="Input">
+			<Grid>
+				
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				
+				<!-- Runway Heading -->
+				<TextBlock Grid.Row="0"
+						   Grid.Column="0"
+						   Text="Bahnrichtung:"
+						   VerticalAlignment="Center" />
+				
+				<xctk:IntegerUpDown
+					Grid.Row="0"
+					Grid.Column="1"
+					Width="100"
+					Value="{Binding RunwayHeading, Mode=TwoWay}" 
+					Minimum="001"
+					Maximum="360"
+					FormatString="D3"
+					Margin="5 2 5 2" />
+				
+				<TextBlock Grid.Row="0"
+						   Grid.Column="2"
+						   Text="Grad"
+						   VerticalAlignment="Center" />
+
+				<!-- Wind Direction -->
+				<TextBlock Grid.Row="1"
+						   Grid.Column="0"
+						   Text="Windrichtung:"
+						   VerticalAlignment="Center" />
+				
+				<xctk:IntegerUpDown Grid.Row="1"
+									Grid.Column="1"
+									Width="100"
+									Value="{Binding WindDirection, Mode=TwoWay}"
+									Minimum="001"
+									Maximum="360"
+									FormatString="D3"
+									Margin="5 2 5 2" />
+				
+				<TextBlock Grid.Row="1"
+						   Grid.Column="2"
+						   Text="Grad"
+						   VerticalAlignment="Center"/>
+				
+				<!-- Wind Speed -->
+				<TextBlock Grid.Row="2"
+						   Grid.Column="0"
+						   Text="Windstärke:"
+						   VerticalAlignment="Center" />
+				
+				<xctk:IntegerUpDown Grid.Row="2"
+									Grid.Column="1"
+									Width="100"
+									Value="{Binding WindSpeed, Mode=TwoWay}"
+									Minimum="0"
+									Margin="5 2 5 2" />
+
+				<ComboBox x:Name="WindDimension"
+						  Grid.Row="2"
+						  Grid.Column="2"
+						  Background="Transparent"
+						  Width="50"/>
+
+			</Grid>
+		</GroupBox>
+		
+		<GroupBox Header="Output">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="2*" />
+				</Grid.ColumnDefinitions>
+				
+				<!-- Headwind -->
+				<TextBlock Grid.Row="0"
+						   Grid.Column="0"
+						   Text="Bahnwind:"
+						   VerticalAlignment="Center" />
+
+				<TextBlock x:Name="HeadWindText"
+						   Grid.Row="0"
+						   Grid.Column="1"
+						   VerticalAlignment="Center"
+						   Margin="5 2 5 2"/>
+
+				<!-- Headwind -->
+				<TextBlock Grid.Row="1"
+						   Grid.Column="0"
+						   Text="Seitenwind:"
+						   VerticalAlignment="Center" />
+
+				<TextBlock x:Name="CrossWindText"
+						   Grid.Row="1"
+						   Grid.Column="1"
+						   VerticalAlignment="Center"
+						   Margin="5 2 5 2"/>
+
+			</Grid>
+		</GroupBox>
+	</StackPanel>
 
 </Window>
