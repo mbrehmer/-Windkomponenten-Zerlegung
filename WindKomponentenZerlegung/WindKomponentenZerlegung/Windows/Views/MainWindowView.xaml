@@ -42,7 +42,8 @@
 					Value="{Binding RunwayHeading, Mode=TwoWay}" 
 					Minimum="001"
 					Maximum="360"
-					FormatString="D3" />
+					FormatString="D3"
+					Margin="5 2 5 2" />
 				
 				<TextBlock Grid.Row="0"
 						   Grid.Column="2"
@@ -61,7 +62,8 @@
 									Value="{Binding WindDirection, Mode=TwoWay}"
 									Minimum="001"
 									Maximum="360"
-									FormatString="D3" />
+									FormatString="D3"
+									Margin="5 2 5 2" />
 				
 				<TextBlock Grid.Row="1"
 						   Grid.Column="2"
@@ -78,7 +80,8 @@
 									Grid.Column="1"
 									Width="100"
 									Value="{Binding WindSpeed, Mode=TwoWay}"
-									ShowButtonSpinner="False" />
+									Minimum="0"
+									Margin="5 2 5 2" />
 
 				<ComboBox x:Name="WindDimension"
 						  Grid.Row="2"
@@ -110,7 +113,8 @@
 				<TextBlock x:Name="HeadWindText"
 						   Grid.Row="0"
 						   Grid.Column="1"
-						   VerticalAlignment="Center" />
+						   VerticalAlignment="Center"
+						   Margin="5 2 5 2"/>
 
 				<!-- Headwind -->
 				<TextBlock Grid.Row="1"
@@ -121,7 +125,8 @@
 				<TextBlock x:Name="CrossWindText"
 						   Grid.Row="1"
 						   Grid.Column="1"
-						   VerticalAlignment="Center" />
+						   VerticalAlignment="Center"
+						   Margin="5 2 5 2"/>
 
 			</Grid>
 		</GroupBox>
