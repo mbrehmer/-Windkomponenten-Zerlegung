@@ -142,9 +142,12 @@ namespace WindKomponentenZerlegung
 		{
 			get
 			{
-				string result = String.Empty;
+				double value = WindSpeed * Math.Cos(DegreesToRadial(WindDirection - RunwayHeading));
 
-				// TODO: implementation
+				string result = Math.Abs(value).ToString("N2") + " " + SelectedWindDimension;
+
+				if (value >= 0.00) result += " Gegenwind";
+				else result += " Rückenwind";
 
 				return result;
 			}
@@ -160,9 +163,12 @@ namespace WindKomponentenZerlegung
 		{
 			get
 			{
-				string result = String.Empty;
+				double value = WindSpeed * Math.Sin(DegreesToRadial(WindDirection - RunwayHeading));
 
-				// TODO: impelmentation
+				string result = Math.Abs(value).ToString("N2") + " " + SelectedWindDimension;
+
+				if (value >= 0.00) result += " von rechts";
+				else result += " von links";
 
 				return result;
 			}
@@ -182,11 +188,23 @@ namespace WindKomponentenZerlegung
 
 			WindowTitle = "Windkomponenten-Zerlegung";
 
-			RunwayHeading = 180;
-			WindDirection = 180;
+			RunwayHeading = 0;
+			WindDirection = 0;
 			WindSpeed = 0;
 			WindDimension = new List<string> { "kt", "m/s", "km/h" };
 			SelectedWindDimension = WindDimension[0];
+		}
+		#endregion
+
+		#region private function members
+		/// <summary>
+		/// Converts degreeses into a radial.
+		/// </summary>
+		/// <param name="angle">The angle in degrees.</param>
+		/// <returns>The angle as a radial</returns>
+		private double DegreesToRadial(double angle)
+		{
+			return Math.PI * angle / 180.0;
 		}
 		#endregion
 	}
