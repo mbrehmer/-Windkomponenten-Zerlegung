@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="64506AE2-04BF-4350-8C5C-D53F3E4FBD7F"
+			 UpgradeCode="3F0F76FD-3E1E-4C76-BDFF-05D9A0051AED"
+			 Language="1031" Codepage="1252"
+			 Version="1.0.0"
+			 Manufacturer="Martin Brehmer"
+			 Name="Windkomponenten-Zerlegung">
+
+		<Package Languages="1031" SummaryCodepage="1252"
+				 InstallerVersion="301" InstallScope="perMachine"
+				 Manufacturer="Martin Brehmer"
+				 Description="Ein Tool zur Zerlegung von Wind-Daten in Cross- und Headwind"
+				 Keywords="Wind,Komponenten,Headwind,Crosswind"
+				 Comments="(c) 2017 Martin Brehmer"/>
+
+		<MajorUpgrade DowngradeErrorMessage="Es ist bereits eine neuere Version von [ProductName] installiert."
+					  Schedule="afterInstallExecute"/>
+
+
+		<MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
+		
+		<!-- Directories -->
+			<Directory Id="TARGETDIR" Name="SourceDir">
+				<Directory Id="ProgramFilesFolder">
+					<Directory Id="ApplicationDir" Name="Windkomponenten-Zerlegung" />
+
+					<Directory Id="ProgramMenuFolder">
+						<Directory Id="ShortcutsDir" Name="Windkomponenten-Zerlegung" />
+					</Directory>
+				</Directory>
+			</Directory>
+		
+		<!-- Program menu shortcuts -->
+		<DirectoryRef Id="ShortcutsDir">
+			<Component Id="cmpShortcuts" Guid="FBBF37D5-A955-4A91-848B-D5B5096BD643">
+				<Shortcut Id="ApplicationShortcut"
+						  Name="Windkomponenten-Zerlegung"
+						  Description="Startet das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
+						  Target="[ApplicationDir]WindKomponentenZerlegung.exe" />
+
+				<Shortcut Id="UninstallShortcut"
+						  Name="Windkomponenten-Zerlegung deinstallieren"
+						  Description="Deinstalliert das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
+						  Target="[System64Folder]msiexec"
+						  Arguments="/x [ProductCode]" />
+
+				<RemoveFolder Id="RemoveShortcutsDir" Directory ="ShortcutsDir" On ="uninstall" />
+
+				<RegistryValue Root="HKCU"
+							   Key="Software\Microsoft\WindkomponentenZerlegung"
+							   Name="installed"
+							   Type="integer"
+							   Value="1"
+							   KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+		
+		<!-- Features -->
+		<Feature Id="ProductFeature" Title="Hauptanwendung" Level="1">
+			<ComponentGroupRef Id="ApplicationComponents"/>
+			<ComponentRef Id="cmpShortcuts"/>
+		</Feature>
+			
+		</Product>
+</Wix>

@@ -8,6 +8,7 @@
 		xmlns:local="clr-namespace:WindKomponentenZerlegung"
 		mc:Ignorable="d"
 		d:DataContext="{Binding Source={x:Static local:DesignTimeVewModels.MainWindowViewModel}}"
+		cal:Bind.AtDesignTime="True"
 		ResizeMode="CanMinimize"
 		Width="450" Height="220"
 		WindowStartupLocation="CenterScreen"
