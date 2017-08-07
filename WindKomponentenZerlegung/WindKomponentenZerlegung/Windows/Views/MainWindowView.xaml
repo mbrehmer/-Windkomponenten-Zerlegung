@@ -12,7 +12,8 @@
 		ResizeMode="CanMinimize"
 		Width="450" Height="220"
 		WindowStartupLocation="CenterScreen"
-		Title="{Binding WindowTitle}">
+		Title="{Binding WindowTitle}"
+		Icon="{Binding WindowIcon}">
 	
 	<StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
 		<GroupBox Header="Input">
