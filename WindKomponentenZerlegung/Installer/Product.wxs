@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="64506AE2-04BF-4350-8C5C-D53F3E4FBD7F"
-			 UpgradeCode="3F0F76FD-3E1E-4C76-BDFF-05D9A0051AED"
+	<Product Id="*"
+			 UpgradeCode="{F1C1D006-0582-4CCB-A557-99A0B4A2B1AC}"
 			 Language="1031" Codepage="1252"
-			 Version="1.0.0"
+			 Version="2.0.0"
 			 Manufacturer="Martin Brehmer"
 			 Name="Windkomponenten-Zerlegung">
 
@@ -14,11 +14,18 @@
 				 Keywords="Wind,Komponenten,Headwind,Crosswind"
 				 Comments="(c) 2017 Martin Brehmer"/>
 
-		<MajorUpgrade DowngradeErrorMessage="Es ist bereits eine neuere Version von [ProductName] installiert."
-					  Schedule="afterInstallExecute"/>
+		<MajorUpgrade DowngradeErrorMessage="Es ist bereits eine neuere Version von [ProductName] installiert." />
 
+		<MediaTemplate EmbedCab="yes"/>
 
-		<MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
+		<Icon Id="icon.ico" SourceFile="$(var.WindKomponentenZerlegung.ProjectDir)Resources\Icon\wetterhahn_96.ico"/>
+		
+		<Property Id="ARPPRODUCTICON">icon.ico</Property>
+		<Property Id="ARPURLINFOABOUT">http://www.mbrehmer.de</Property>
+
+		<UIRef Id="WixUI_Minimal" />
+
+		<WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)gpl-3.0.rtf"/>
 		
 		<!-- Directories -->
 			<Directory Id="TARGETDIR" Name="SourceDir">
@@ -33,7 +40,7 @@
 		
 		<!-- Program menu shortcuts -->
 		<DirectoryRef Id="ShortcutsDir">
-			<Component Id="cmpShortcuts" Guid="FBBF37D5-A955-4A91-848B-D5B5096BD643">
+			<Component Id="cmpShortcuts" Guid="{597E083E-7FEE-4A24-BDEC-14FF948E3948}">
 				<Shortcut Id="ApplicationShortcut"
 						  Name="Windkomponenten-Zerlegung"
 						  Description="Startet das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
