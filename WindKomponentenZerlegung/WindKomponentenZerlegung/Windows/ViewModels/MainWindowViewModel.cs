@@ -20,7 +20,6 @@ namespace WindKomponentenZerlegung
 		private readonly IWindowManager windowManager;
 
 		private string _windowTitle;
-		private BitmapImage _windowIcon;
 
 		private int _runwayHeading;
 		private int _windDirection;
@@ -43,22 +42,6 @@ namespace WindKomponentenZerlegung
 			{
 				_windowTitle = value;
 				NotifyOfPropertyChange(() => WindowTitle);
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the window icon.
-		/// </summary>
-		/// <value>
-		/// The window icon.
-		/// </value>
-		public BitmapImage WindowIcon
-		{
-			get { return _windowIcon; }
-			set
-			{
-				_windowIcon = value;
-				NotifyOfPropertyChange(() => WindowIcon);
 			}
 		}
 
@@ -205,7 +188,6 @@ namespace WindKomponentenZerlegung
 			this.windowManager = windowManager;
 
 			WindowTitle = "Windkomponenten-Zerlegung";
-			WindowIcon = new BitmapImage(new Uri("../../Resources/Icon/wetterhahn_96.png", UriKind.Relative));
 
 			RunwayHeading = 0;
 			WindDirection = 0;

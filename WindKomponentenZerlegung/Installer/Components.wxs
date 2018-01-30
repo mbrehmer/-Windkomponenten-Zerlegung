@@ -2,89 +2,95 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="ApplicationDir">
-            <Component Id="cmpC0AB491469A9A28F82E893A01CC13B05" Guid="{43F73ABA-E51A-4B6D-9F72-17BFC0C4C608}">
+            <Component Id="cmpC0AB491469A9A28F82E893A01CC13B05" Guid="*">
                 <File Id="filD47C954FE03EE9B034CB60DB2F3E62E5" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Caliburn.Micro.dll" />
             </Component>
-            <Component Id="cmpC5FF26B3619E3166398F6D01C5E71259" Guid="{99B8F37E-518C-40B4-9997-0A10F89D2EF8}">
+            <Component Id="cmpC5FF26B3619E3166398F6D01C5E71259" Guid="*">
                 <File Id="fil03EE0BDD4F06DF3398585080AE64070D" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Caliburn.Micro.Platform.Core.dll" />
             </Component>
-            <Component Id="cmp836C3BA5B47C4EFEEFA2769C83F2DE04" Guid="{53828E9F-00D9-45D5-85E8-3B333F1E57DE}">
+            <Component Id="cmp836C3BA5B47C4EFEEFA2769C83F2DE04" Guid="*">
                 <File Id="filC09D3D8254B2F4C116BCF2870B8F84FC" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Caliburn.Micro.Platform.dll" />
             </Component>
-            <Component Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" Guid="{D168BDD1-066A-4C82-8204-3F472AC0E9CC}">
+            <Component Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" Guid="*">
                 <File Id="fil63D64EB370CB4885CDF1D66904E62C2A" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\System.Windows.Interactivity.dll" />
             </Component>
-            <Component Id="cmp8431A50489524B99CB200323585E00EB" Guid="{739D1904-56CD-4D90-A13D-E5C7CEF7510F}">
+            <Component Id="cmp8431A50489524B99CB200323585E00EB" Guid="*">
                 <File Id="fil07E66B4AF46C4165E4CD5835FE918182" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.exe" />
             </Component>
-            <Component Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" Guid="{6537698C-74F5-47E3-8270-D2ED2C105731}">
+            <Component Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" Guid="*">
                 <File Id="fil4B6C495F8D8DDC40AB7234573ADAA597" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.exe.config" />
             </Component>
-            <Component Id="cmpD039A47486007BD3730177620D6408BB" Guid="{7E10F669-DFEB-45EE-8CEE-A7F3714FC71B}">
+            <Component Id="cmp77721A392B75B0D5BE98A6FE80739B1C" Guid="*">
+                <File Id="fil58FA0274F428515E8B3B10F5C0596923" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.vshost.exe" />
+            </Component>
+            <Component Id="cmpBEE612A78587D21000E1F3BDC646CE31" Guid="*">
+                <File Id="filF099E771F8DD4C5CB3B27A9B2A29521D" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.vshost.exe.config" />
+            </Component>
+            <Component Id="cmpD039A47486007BD3730177620D6408BB" Guid="*">
                 <File Id="fil18A59A479D59FCA0C834A2D00D69EEB4" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.AvalonDock.dll" />
             </Component>
-            <Component Id="cmp5DBEFD6B65930EC9958CD26D753088FA" Guid="{307E06D4-CBC8-4636-9FBB-94D921D7D937}">
+            <Component Id="cmp5DBEFD6B65930EC9958CD26D753088FA" Guid="*">
                 <File Id="fil669ACA0059A2A71A0A999A6DAEDA5724" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
             </Component>
-            <Component Id="cmpD0B46DA9C7CF54A2F191FE77E4909C1C" Guid="{8E4D6D7E-CF0E-4CA4-B734-7C6CFA9A3499}">
+            <Component Id="cmpD0B46DA9C7CF54A2F191FE77E4909C1C" Guid="*">
                 <File Id="filE0B82C6B13E6C57D3A95260220B06613" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
             </Component>
-            <Component Id="cmpDD4ECF0E0BBF0059B58308070E025C9C" Guid="{3665A9BE-5795-46F7-8FB5-A66AD56027BA}">
+            <Component Id="cmpDD4ECF0E0BBF0059B58308070E025C9C" Guid="*">
                 <File Id="fil1352BFE2A27BB404CC2B0CC4E97C3AED" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
             </Component>
-            <Component Id="cmp42547180701479C5E9C12B89805C3525" Guid="{00E8BE51-1832-414B-B614-398D593D14FE}">
+            <Component Id="cmp42547180701479C5E9C12B89805C3525" Guid="*">
                 <File Id="filAD98CEC48545E56234B2D599126E7523" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.DataGrid.dll" />
             </Component>
-            <Component Id="cmp2282FBCC66E64970B6874DBF9B718D9F" Guid="{998313EF-BAEA-46C3-B274-0755E28559F4}">
+            <Component Id="cmp2282FBCC66E64970B6874DBF9B718D9F" Guid="*">
                 <File Id="fil45F4A38DC59BFECE36CBAF16CA10C604" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.Toolkit.dll" />
             </Component>
             <Directory Id="dir79CE0AEA6C436236F4BB328541FB7FA4" Name="de">
-                <Component Id="cmpFA03E233C16955EADACF1EF06A76A3E2" Guid="{B0D0F8AB-7A08-43CD-9E66-1A9DE3BCEDC3}">
+                <Component Id="cmpFA03E233C16955EADACF1EF06A76A3E2" Guid="*">
                     <File Id="filE23B44C5D5F6B24185227BBD07850B17" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\de\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir4C594274F85D790DA82239D2B449C835" Name="es">
-                <Component Id="cmp5EAF04096ABDDEA4557DA5A36102DB5B" Guid="{B1E5A7E0-A639-435A-BDB9-C57888A3D664}">
+                <Component Id="cmp5EAF04096ABDDEA4557DA5A36102DB5B" Guid="*">
                     <File Id="fil169BB1AC3130DEB04E4AC318D7846DAB" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\es\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir86A76092C69A840FC5DC2CE247C219A6" Name="fr">
-                <Component Id="cmpF464BBA727FE362F1203F159F1D3FAF8" Guid="{96434F71-1CF2-46C8-AA6F-9A0118E9EA28}">
+                <Component Id="cmpF464BBA727FE362F1203F159F1D3FAF8" Guid="*">
                     <File Id="fil9A8905B555F0E2156D6119A15DC8A93E" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\fr\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dirCED6A50D1159EAE49C04A45AC1CEEFAE" Name="hu">
-                <Component Id="cmpA61317F3CA29B788C5FAC7B422B07B49" Guid="{0028FD38-4C1A-434A-9D81-4DC614A6E362}">
+                <Component Id="cmpA61317F3CA29B788C5FAC7B422B07B49" Guid="*">
                     <File Id="fil8ADE64E7180AA36B7C398A4C5A084157" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\hu\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir13CFE56264E8D8BFEC1497FDE0787C89" Name="it">
-                <Component Id="cmpE980C3459030167585745CC4BF2DF840" Guid="{08BFEEE2-B75E-4FC2-96B7-60A4181A0173}">
+                <Component Id="cmpE980C3459030167585745CC4BF2DF840" Guid="*">
                     <File Id="fil7878E59E8968674C31B3CF1E8B6D5CA2" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\it\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dirC2AFDEB9A8EA7757C6F20336D6382861" Name="pt-BR">
-                <Component Id="cmpD4408D80E95098B83FDE586E8476C881" Guid="{3B74506C-FB8D-42C4-9C99-94584490885E}">
+                <Component Id="cmpD4408D80E95098B83FDE586E8476C881" Guid="*">
                     <File Id="filB84145D036CA95B9967B9BDDA59ABDB6" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\pt-BR\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir603168D3CACF6D1F37DE9CD90EDC30BF" Name="ro">
-                <Component Id="cmpACB2D40E18F80CFF949B95FC4BD31161" Guid="{842D7E23-A367-4B73-A84D-C4A81E1DFF1A}">
+                <Component Id="cmpACB2D40E18F80CFF949B95FC4BD31161" Guid="*">
                     <File Id="filBEB1E422C486B8AB184FBD88661157F5" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\ro\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir2581EFE88A85CB4990B2745B5300E90F" Name="ru">
-                <Component Id="cmpFEE9293F0D294077099E66BA6EEBC8F3" Guid="{78C3F817-935F-433F-BF43-457E74961D34}">
+                <Component Id="cmpFEE9293F0D294077099E66BA6EEBC8F3" Guid="*">
                     <File Id="filD6C2B33E05B73A76E5DD9E9EE282FD86" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\ru\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dirC56152B7339E027F6772F768F53F8838" Name="sv">
-                <Component Id="cmpF852C6D10338B00672ACE07F33C8B04A" Guid="{797913D2-970B-439C-97EF-204413944537}">
+                <Component Id="cmpF852C6D10338B00672ACE07F33C8B04A" Guid="*">
                     <File Id="fil1EB3985C29DE44E05E080FDED1051442" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\sv\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir0E3E8EE8C56FEFD0244DB9DFBB025D30" Name="zh-Hans">
-                <Component Id="cmp891BD51CF02A1E2FB4709A35D481BBFD" Guid="{5C8F5F22-5A08-47CB-8225-CB34159E0141}">
+                <Component Id="cmp891BD51CF02A1E2FB4709A35D481BBFD" Guid="*">
                     <File Id="fil90AB9537F2CF11BC1B2915F8C3545E66" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" />
                 </Component>
             </Directory>
@@ -98,6 +104,8 @@
             <ComponentRef Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" />
             <ComponentRef Id="cmp8431A50489524B99CB200323585E00EB" />
             <ComponentRef Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" />
+            <ComponentRef Id="cmp77721A392B75B0D5BE98A6FE80739B1C" />
+            <ComponentRef Id="cmpBEE612A78587D21000E1F3BDC646CE31" />
             <ComponentRef Id="cmpD039A47486007BD3730177620D6408BB" />
             <ComponentRef Id="cmp5DBEFD6B65930EC9958CD26D753088FA" />
             <ComponentRef Id="cmpD0B46DA9C7CF54A2F191FE77E4909C1C" />
