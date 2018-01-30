@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Product Id="*"
-			 UpgradeCode="{F1C1D006-0582-4CCB-A557-99A0B4A2B1AC}"
+			 UpgradeCode="{3F0F76FD-3E1E-4C76-BDFF-05D9A0051AED}"
 			 Language="1031" Codepage="1252"
 			 Version="1.1.0"
 			 Manufacturer="Martin Brehmer"

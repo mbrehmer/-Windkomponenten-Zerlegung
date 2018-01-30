@@ -1,53 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-	<ProductVersion>3.10</ProductVersion>
-	<ProjectGuid>975baf75-0e45-4711-bec0-db2de258fa3c</ProjectGuid>
-	<SchemaVersion>2.0</SchemaVersion>
-	<OutputName>WindkomponentenZerlegung</OutputName>
-	<OutputType>Package</OutputType>
-	<WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
-	<WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>975baf75-0e45-4711-bec0-db2de258fa3c</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>WindkomponentenZerlegung</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-	<OutputPath>bin\$(Configuration)\</OutputPath>
-	<IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-	<DefineConstants>Debug</DefineConstants>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <Cultures>de-DE</Cultures>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-	<OutputPath>bin\$(Configuration)\</OutputPath>
-	<IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-	<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Cultures>de-DE</Cultures>
   </PropertyGroup>
   <ItemGroup>
-	<Compile Include="Components.wxs" />
-	<Compile Include="Product.wxs" />
+    <Compile Include="Components.wxs" />
+    <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
-	<ProjectReference Include="..\WindKomponentenZerlegung\WindKomponentenZerlegung.csproj">
-	  <Name>WindKomponentenZerlegung</Name>
-	  <Project>{7493d7e7-a7ce-4c6b-b620-6aef1c49adb1}</Project>
-	  <Private>True</Private>
-	  <DoNotHarvest>True</DoNotHarvest>
-	  <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-	  <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-	</ProjectReference>
+    <ProjectReference Include="..\WindKomponentenZerlegung\WindKomponentenZerlegung.csproj">
+      <Name>WindKomponentenZerlegung</Name>
+      <Project>{7493d7e7-a7ce-4c6b-b620-6aef1c49adb1}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-	<Content Include="Filter.xslt" />
-	<Content Include="gpl-3.0.rtf" />
+    <Content Include="Filter.xslt" />
+    <Content Include="gpl-3.0.rtf" />
   </ItemGroup>
   <ItemGroup>
-	<WixExtension Include="WixUIExtension">
-	  <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
-	  <Name>WixUIExtension</Name>
-	</WixExtension>
-	<WixExtension Include="WixUtilExtension">
-	  <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
-	  <Name>WixUtilExtension</Name>
-	</WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
@@ -59,18 +61,6 @@
 	</Target>
 	-->
   <Target Name="BeforeBuild">
-	<HeatDirectory OutputFile="Components.wxs"
-				   DirectoryRefId="ApplicationDir"
-				   ComponentGroupName="ApplicationComponents"
-				   Directory="$(SolutionDir)\WindKomponentenZerlegung\bin\$(Configuration)"
-				   SuppressFragments="true"
-				   SuppressCom="true"
-				   SuppressRegistry="true"
-				   SuppressRootDirectory="true"
-				   AutoGenerateGuids="true"
-				   GenerateGuidsNow="false"
-				   ToolPath="$(wixToolPath)"
-				   PreprocessorVariable="var.WindKomponentenZerlegung.TargetDir"
-				   Transforms="Filter.xslt" />
+    <HeatDirectory OutputFile="Components.wxs" DirectoryRefId="ApplicationDir" ComponentGroupName="ApplicationComponents" Directory="$(SolutionDir)\WindKomponentenZerlegung\bin\$(Configuration)" SuppressFragments="true" SuppressCom="true" SuppressRegistry="true" SuppressRootDirectory="true" AutoGenerateGuids="true" GenerateGuidsNow="false" ToolPath="$(wixToolPath)" PreprocessorVariable="var.WindKomponentenZerlegung.TargetDir" Transforms="Filter.xslt" />
   </Target>
 </Project>
