@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="DesignTimeHelpers\DesignTimeVewModels.cs" />
-    <Compile Include="IShell.cs" />
     <Compile Include="Windows\ViewModels\MainWindowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="wetterhahn_96.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{772d044e-ecff-4564-b386-5d1904d06b33}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

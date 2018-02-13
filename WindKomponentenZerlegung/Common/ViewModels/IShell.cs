@@ -1,9 +1,9 @@
-﻿namespace WindKomponentenZerlegung
+﻿namespace Common.ViewModels
 {
 	/// <summary>
 	/// The cummon interface for all application shells
 	/// </summary>
-	interface IShell
+	public interface IShell
 	{
 	}
 }

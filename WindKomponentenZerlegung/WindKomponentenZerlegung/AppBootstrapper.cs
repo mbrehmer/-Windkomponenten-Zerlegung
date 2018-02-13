@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
+using Common.ViewModels;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace WindKomponentenZerlegung
 {
@@ -37,6 +39,24 @@ namespace WindKomponentenZerlegung
 			container.Singleton<IWindowManager, WindowManager>();
 			container.Singleton<IEventAggregator, EventAggregator>();
 			container.PerRequest<IShell, MainWindowViewModel>();
+
+			TypeMappingConfiguration config = new TypeMappingConfiguration
+			{
+				DefaultSubNamespaceForViews = "WindKomponentenZerlegung",
+				DefaultSubNamespaceForViewModels = "Common.ViewModels"
+			};
+
+			ViewModelLocator.ConfigureTypeMappings(config);
+			ViewLocator.ConfigureTypeMappings(config);
+		}
+
+		protected override IEnumerable<Assembly> SelectAssemblies()
+		{
+			List<Assembly> result = new List<Assembly>(base.SelectAssemblies());
+
+			result.Add(typeof(IShell).Assembly);
+
+			return result;
 		}
 
 		/// <summary>
