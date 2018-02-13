@@ -15,11 +15,13 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
+    <Cultures>de-DE</Cultures>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Cultures>de-DE</Cultures>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components.wxs" />
@@ -35,6 +37,20 @@
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Filter.xslt" />
+    <Content Include="gpl-3.0.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -44,4 +60,7 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
+  <Target Name="BeforeBuild">
+    <HeatDirectory OutputFile="Components.wxs" DirectoryRefId="ApplicationDir" ComponentGroupName="ApplicationComponents" Directory="$(SolutionDir)\WindKomponentenZerlegung\bin\$(Configuration)" SuppressFragments="true" SuppressCom="true" SuppressRegistry="true" SuppressRootDirectory="true" AutoGenerateGuids="true" GenerateGuidsNow="false" ToolPath="$(wixToolPath)" PreprocessorVariable="var.WindKomponentenZerlegung.TargetDir" Transforms="Filter.xslt" />
+  </Target>
 </Project>
