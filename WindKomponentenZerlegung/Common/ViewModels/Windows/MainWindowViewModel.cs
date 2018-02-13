@@ -1,10 +1,8 @@
-﻿using Caliburn.Micro;
-using Common.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 
-namespace WindKomponentenZerlegung
+namespace Common.ViewModels
 {
 	/// <summary>
 	/// The view model of the App-Shell (main window)
@@ -12,12 +10,9 @@ namespace WindKomponentenZerlegung
 	/// <seealso cref="Caliburn.Micro.PropertyChangedBase" />
 	/// <seealso cref="WindKomponentenZerlegung.IShell" />
 	[Export(typeof(IShell))]
-	public class MainWindowViewModel : PropertyChangedBase, IShell
+	public class MainWindowViewModel : ViewModelBase, IShell
 	{
 		#region private data-members
-
-		private readonly IEventAggregator eventAggregator;
-		private readonly IWindowManager windowManager;
 
 		private string _windowTitle;
 
@@ -186,11 +181,9 @@ namespace WindKomponentenZerlegung
 		/// </summary>
 		/// <param name="eventAggregator">The event aggregator.</param>
 		/// <param name="windowManager">The window manager.</param>
-		public MainWindowViewModel(IEventAggregator eventAggregator, IWindowManager windowManager)
+		public MainWindowViewModel()
+			: base()
 		{
-			this.eventAggregator = eventAggregator;
-			this.windowManager = windowManager;
-
 			WindowTitle = "Windkomponenten-Zerlegung";
 
 			RunwayHeading = 0;

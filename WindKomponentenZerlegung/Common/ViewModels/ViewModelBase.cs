@@ -66,6 +66,9 @@ namespace Common.ViewModels
 		{
 			this.eventAggregator = IoC.Get<IEventAggregator>();
 			this.windowManager = IoC.Get<IWindowManager>();
+
+			this.Width = double.NaN;
+			this.Height = double.NaN;
 		}
 
 		#endregion constructors
