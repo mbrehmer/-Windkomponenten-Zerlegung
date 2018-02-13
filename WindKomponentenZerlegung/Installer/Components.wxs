@@ -11,6 +11,9 @@
             <Component Id="cmp836C3BA5B47C4EFEEFA2769C83F2DE04" Guid="*">
                 <File Id="filC09D3D8254B2F4C116BCF2870B8F84FC" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Caliburn.Micro.Platform.dll" />
             </Component>
+            <Component Id="cmpBF421EBBE8FCA2046F7DED4FBEC7693A" Guid="*">
+                <File Id="fil78238A1492A31E505AB289C5623C8031" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Common.dll" />
+            </Component>
             <Component Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" Guid="*">
                 <File Id="fil63D64EB370CB4885CDF1D66904E62C2A" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\System.Windows.Interactivity.dll" />
             </Component>
@@ -95,6 +98,7 @@
             <ComponentRef Id="cmpC0AB491469A9A28F82E893A01CC13B05" />
             <ComponentRef Id="cmpC5FF26B3619E3166398F6D01C5E71259" />
             <ComponentRef Id="cmp836C3BA5B47C4EFEEFA2769C83F2DE04" />
+            <ComponentRef Id="cmpBF421EBBE8FCA2046F7DED4FBEC7693A" />
             <ComponentRef Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" />
             <ComponentRef Id="cmp8431A50489524B99CB200323585E00EB" />
             <ComponentRef Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" />
