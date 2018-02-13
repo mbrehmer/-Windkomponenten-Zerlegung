@@ -20,12 +20,6 @@
             <Component Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" Guid="*">
                 <File Id="fil4B6C495F8D8DDC40AB7234573ADAA597" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.exe.config" />
             </Component>
-            <Component Id="cmp77721A392B75B0D5BE98A6FE80739B1C" Guid="*">
-                <File Id="fil58FA0274F428515E8B3B10F5C0596923" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.vshost.exe" />
-            </Component>
-            <Component Id="cmpBEE612A78587D21000E1F3BDC646CE31" Guid="*">
-                <File Id="filF099E771F8DD4C5CB3B27A9B2A29521D" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\WindKomponentenZerlegung.vshost.exe.config" />
-            </Component>
             <Component Id="cmpD039A47486007BD3730177620D6408BB" Guid="*">
                 <File Id="fil18A59A479D59FCA0C834A2D00D69EEB4" KeyPath="yes" Source="$(var.WindKomponentenZerlegung.TargetDir)\Xceed.Wpf.AvalonDock.dll" />
             </Component>
@@ -104,8 +98,6 @@
             <ComponentRef Id="cmp341676CEE9F9DA4FE47DD6EBF07E3217" />
             <ComponentRef Id="cmp8431A50489524B99CB200323585E00EB" />
             <ComponentRef Id="cmpD0FD6811EC20F2224CF7CE0CCD163BA8" />
-            <ComponentRef Id="cmp77721A392B75B0D5BE98A6FE80739B1C" />
-            <ComponentRef Id="cmpBEE612A78587D21000E1F3BDC646CE31" />
             <ComponentRef Id="cmpD039A47486007BD3730177620D6408BB" />
             <ComponentRef Id="cmp5DBEFD6B65930EC9958CD26D753088FA" />
             <ComponentRef Id="cmpD0B46DA9C7CF54A2F191FE77E4909C1C" />
