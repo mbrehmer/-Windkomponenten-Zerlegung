@@ -8,6 +8,7 @@ namespace WindKomponentenZerlegung
 	public static class DesignTimeVewModels
 	{
 		#region public properties
+
 		/// <summary>
 		/// Gets the main window view model instance for Design-TIme support.
 		/// </summary>
@@ -15,9 +16,11 @@ namespace WindKomponentenZerlegung
 		/// The main window view model.
 		/// </value>
 		public static MainWindowViewModel MainWindowViewModel { get; private set; }
-		#endregion
+
+		#endregion public properties
 
 		#region constructors
+
 		/// <summary>
 		/// Initializes the <see cref="DesignTimeVewModels"/> class.
 		/// </summary>
@@ -28,6 +31,7 @@ namespace WindKomponentenZerlegung
 
 			MainWindowViewModel = new MainWindowViewModel(eventAggregator, windowManager);
 		}
-		#endregion
+
+		#endregion constructors
 	}
 }

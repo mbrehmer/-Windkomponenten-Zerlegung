@@ -3,8 +3,6 @@ using Common.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace WindKomponentenZerlegung
 {
@@ -13,10 +11,11 @@ namespace WindKomponentenZerlegung
 	/// </summary>
 	/// <seealso cref="Caliburn.Micro.PropertyChangedBase" />
 	/// <seealso cref="WindKomponentenZerlegung.IShell" />
-	[Export (typeof(IShell))]
+	[Export(typeof(IShell))]
 	public class MainWindowViewModel : PropertyChangedBase, IShell
 	{
 		#region private data-members
+
 		private readonly IEventAggregator eventAggregator;
 		private readonly IWindowManager windowManager;
 
@@ -27,9 +26,11 @@ namespace WindKomponentenZerlegung
 		private int _windSpeed;
 		private List<string> _windDimension;
 		private string _selectedWindDimension;
-		#endregion
+
+		#endregion private data-members
 
 		#region public properties
+
 		/// <summary>
 		/// Gets or sets the window title.
 		/// </summary>
@@ -175,9 +176,11 @@ namespace WindKomponentenZerlegung
 				return result;
 			}
 		}
-		#endregion
+
+		#endregion public properties
 
 		#region Constructors
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
 		/// </summary>
@@ -196,9 +199,11 @@ namespace WindKomponentenZerlegung
 			WindDimension = new List<string> { "kt", "m/s", "km/h" };
 			SelectedWindDimension = WindDimension[0];
 		}
-		#endregion
+
+		#endregion Constructors
 
 		#region private function members
+
 		/// <summary>
 		/// Converts degreeses into a radial.
 		/// </summary>
@@ -208,6 +213,7 @@ namespace WindKomponentenZerlegung
 		{
 			return Math.PI * angle / 180.0;
 		}
-		#endregion
+
+		#endregion private function members
 	}
 }

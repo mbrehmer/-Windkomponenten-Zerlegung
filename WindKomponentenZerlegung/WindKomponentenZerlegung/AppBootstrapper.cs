@@ -9,16 +9,19 @@ namespace WindKomponentenZerlegung
 	/// The bootstrapper of the application
 	/// </summary>
 	/// <seealso cref="Caliburn.Micro.BootstrapperBase" />
-	class AppBootstrapper : BootstrapperBase
+	internal class AppBootstrapper : BootstrapperBase
 	{
 		#region private data-members
+
 		/// <summary>
 		/// The IoC-container
 		/// </summary>
 		private SimpleContainer container;
-		#endregion
+
+		#endregion private data-members
 
 		#region constructors
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AppBootstrapper"/> class.
 		/// </summary>
@@ -26,9 +29,11 @@ namespace WindKomponentenZerlegung
 		{
 			Initialize();
 		}
-		#endregion
+
+		#endregion constructors
 
 		#region overrides
+
 		/// <summary>
 		/// Override to configure the framework and setup your IoC container.
 		/// </summary>
@@ -102,6 +107,7 @@ namespace WindKomponentenZerlegung
 		{
 			DisplayRootViewFor<IShell>();
 		}
-		#endregion
+
+		#endregion overrides
 	}
 }
