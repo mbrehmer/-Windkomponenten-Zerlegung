@@ -1,23 +1,18 @@
-﻿using Caliburn.Micro;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
-namespace WindKomponentenZerlegung
+namespace Common.ViewModels
 {
 	/// <summary>
 	/// The view model of the App-Shell (main window)
 	/// </summary>
 	/// <seealso cref="Caliburn.Micro.PropertyChangedBase" />
 	/// <seealso cref="WindKomponentenZerlegung.IShell" />
-	[Export (typeof(IShell))]
-	public class MainWindowViewModel : PropertyChangedBase, IShell
+	[Export(typeof(IShell))]
+	public class MainWindowViewModel : ViewModelBase, IShell
 	{
 		#region private data-members
-		private readonly IEventAggregator eventAggregator;
-		private readonly IWindowManager windowManager;
 
 		private string _windowTitle;
 
@@ -26,9 +21,11 @@ namespace WindKomponentenZerlegung
 		private int _windSpeed;
 		private List<string> _windDimension;
 		private string _selectedWindDimension;
-		#endregion
+
+		#endregion private data-members
 
 		#region public properties
+
 		/// <summary>
 		/// Gets or sets the window title.
 		/// </summary>
@@ -174,19 +171,19 @@ namespace WindKomponentenZerlegung
 				return result;
 			}
 		}
-		#endregion
+
+		#endregion public properties
 
 		#region Constructors
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
 		/// </summary>
 		/// <param name="eventAggregator">The event aggregator.</param>
 		/// <param name="windowManager">The window manager.</param>
-		public MainWindowViewModel(IEventAggregator eventAggregator, IWindowManager windowManager)
+		public MainWindowViewModel()
+			: base()
 		{
-			this.eventAggregator = eventAggregator;
-			this.windowManager = windowManager;
-
 			WindowTitle = "Windkomponenten-Zerlegung";
 
 			RunwayHeading = 0;
@@ -195,9 +192,11 @@ namespace WindKomponentenZerlegung
 			WindDimension = new List<string> { "kt", "m/s", "km/h" };
 			SelectedWindDimension = WindDimension[0];
 		}
-		#endregion
+
+		#endregion Constructors
 
 		#region private function members
+
 		/// <summary>
 		/// Converts degreeses into a radial.
 		/// </summary>
@@ -207,6 +206,7 @@ namespace WindKomponentenZerlegung
 		{
 			return Math.PI * angle / 180.0;
 		}
-		#endregion
+
+		#endregion private function members
 	}
 }

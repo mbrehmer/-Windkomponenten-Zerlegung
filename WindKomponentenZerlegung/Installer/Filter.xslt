@@ -11,8 +11,7 @@
 	</xsl:template>
 	<xsl:output method="xml" indent="yes" />
 
-	<xsl:key name="xml-search" match="wix:Component[contains(concat(wix:File/@Source,'|'), '.xml')]" use="@Id"/>
+	<xsl:key name="xml-search" match="wix:Component[contains(concat(wix:File/@Source,'|'), '.xml')]" use="@Id" />
 	<xsl:template match="wix:Component[key('xml-search', @Id)]" />
 	<xsl:template match="wix:ComponentRef[key('xml-search', @Id)]" />
 </xsl:stylesheet>
-				

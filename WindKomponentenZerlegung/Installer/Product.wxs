@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	 xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*"
 			 UpgradeCode="{3F0F76FD-3E1E-4C76-BDFF-05D9A0051AED}"
 			 Language="1031" Codepage="1252"
-			 Version="1.1.0"
+			 Version="1.2.0"
 			 Manufacturer="Martin Brehmer"
 			 Name="Windkomponenten-Zerlegung">
 
@@ -14,7 +15,8 @@
 				 Keywords="Wind,Komponenten,Headwind,Crosswind"
 				 Comments="(c) 2017 Martin Brehmer"/>
 
-		<MajorUpgrade DowngradeErrorMessage="Es ist bereits eine neuere Version von [ProductName] installiert." />
+		<MajorUpgrade DowngradeErrorMessage="Es ist bereits eine neuere Version von [ProductName] installiert."
+					  AllowSameVersionUpgrades="yes" />
 
 		<MediaTemplate EmbedCab="yes"/>
 
@@ -27,6 +29,17 @@
 
 		<WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)gpl-3.0.rtf"/>
 		
+		<!-- Test auf Windows 7, Windows Server 2008 R2, oder neuer -->
+		<Condition Message="Diese Software unterstützt keine älteren Windows-Versionen als Windows 7, oder Windows Server 2008 R2.">
+			<![CDATA[Installed OR (((VersionNT >= 601) OR (VersionNT64 >= 601)) AND (WindowsBuild > 7100))]]>
+		</Condition>
+		
+		<!-- Test auf .NET Framework 4.5 oder neuer -->
+		<PropertyRef Id="WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED" />
+		<Condition Message="Diese Software benötigt .NET Framework 4.5 oder neuer.">
+			<![CDATA[Installed OR WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED]]>
+		</Condition>
+		
 		<!-- Directories -->
 			<Directory Id="TARGETDIR" Name="SourceDir">
 				<Directory Id="ProgramFilesFolder">
@@ -35,39 +48,55 @@
 					<Directory Id="ProgramMenuFolder">
 						<Directory Id="ShortcutsDir" Name="Windkomponenten-Zerlegung" />
 					</Directory>
+
+					<Directory Id="DesktopFolder" />
 				</Directory>
 			</Directory>
 		
 		<!-- Program menu shortcuts -->
-		<DirectoryRef Id="ShortcutsDir">
-			<Component Id="cmpShortcuts" Guid="{597E083E-7FEE-4A24-BDEC-14FF948E3948}">
-				<Shortcut Id="ApplicationShortcut"
-						  Name="Windkomponenten-Zerlegung"
-						  Description="Startet das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
-						  Target="[ApplicationDir]WindKomponentenZerlegung.exe" />
+		<Component Id="cmpProgramMenuShortcuts" Guid="{597E083E-7FEE-4A24-BDEC-14FF948E3948}" Directory="ShortcutsDir">
+			<Shortcut Id="ApplicationShortcut"
+					  Name="Windkomponenten-Zerlegung"
+					  Description="Startet das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
+					  Target="[ApplicationDir]WindKomponentenZerlegung.exe" />
 
-				<Shortcut Id="UninstallShortcut"
-						  Name="Windkomponenten-Zerlegung deinstallieren"
-						  Description="Deinstalliert das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
-						  Target="[System64Folder]msiexec"
-						  Arguments="/x [ProductCode]" />
+			<Shortcut Id="UninstallShortcut"
+					  Name="Windkomponenten-Zerlegung deinstallieren"
+					  Description="Deinstalliert das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
+					  Target="[System64Folder]msiexec"
+					  Arguments="/x [ProductCode]" />
 
-				<RemoveFolder Id="RemoveShortcutsDir" Directory ="ShortcutsDir" On ="uninstall" />
+			<RemoveFolder Id="RemoveShortcutsDir" Directory ="ShortcutsDir" On ="uninstall" />
 
-				<RegistryValue Root="HKCU"
-							   Key="Software\Microsoft\WindkomponentenZerlegung"
-							   Name="installed"
-							   Type="integer"
-							   Value="1"
-							   KeyPath="yes" />
-			</Component>
-		</DirectoryRef>
+			<RegistryValue Root="HKCU"
+						   Key="Software\Microsoft\WindkomponentenZerlegung"
+						   Name="ProgramMenuShortcutsInstalled"
+						   Type="integer"
+						   Value="1"
+						   KeyPath="yes" />
+		</Component>
+		
+		<!-- Desktop Shortcuts -->
+		<Component Id="cmpDesktopShortcuts" Guid="{01F6F2D1-7BFD-4C33-860F-C541F8FA1FA1}" Directory="DesktopFolder">
+			<Shortcut Id="ApplicationDesktopShortcut"
+					  Name="Windkomponenten-Zerlegung"
+					  Description="Startet das Tool zur Windkomponenten-Zerlegung von Martin Brehmer"
+					  Target="[ApplicationDir]WindKomponentenZerlegung.exe" />
+
+			<RegistryValue Root="HKCU"
+						   Key="Software\Microsoft\WindkomponentenZerlegung"
+						   Name="DesktopShortcutsInstalled"
+						   Type="integer"
+						   Value="1"
+						   KeyPath="yes" />
+		</Component>
 		
 		<!-- Features -->
 		<Feature Id="ProductFeature" Title="Hauptanwendung" Level="1">
-			<ComponentGroupRef Id="ApplicationComponents"/>
-			<ComponentRef Id="cmpShortcuts"/>
+			<ComponentGroupRef Id="ApplicationComponents" />
+			<ComponentRef Id="cmpProgramMenuShortcuts" />
+			<ComponentRef Id="cmpDesktopShortcuts"/>
 		</Feature>
 			
-		</Product>
+	</Product>
 </Wix>
