@@ -55,6 +55,12 @@ namespace WindKomponentenZerlegung
 			ViewLocator.ConfigureTypeMappings(config);
 		}
 
+		/// <summary>
+		/// Override to tell the framework where to find assemblies to inspect for views, etc.
+		/// </summary>
+		/// <returns>
+		/// A list of assemblies to inspect.
+		/// </returns>
 		protected override IEnumerable<Assembly> SelectAssemblies()
 		{
 			List<Assembly> result = new List<Assembly>(base.SelectAssemblies());

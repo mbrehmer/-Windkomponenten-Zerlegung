@@ -181,8 +181,7 @@ namespace Common.ViewModels
 		/// </summary>
 		/// <param name="eventAggregator">The event aggregator.</param>
 		/// <param name="windowManager">The window manager.</param>
-		public MainWindowViewModel()
-			: base()
+		public MainWindowViewModel() : base()
 		{
 			WindowTitle = "Windkomponenten-Zerlegung";
 
